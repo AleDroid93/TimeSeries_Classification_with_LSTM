@@ -2,7 +2,7 @@ import numpy as np
 import constants
 from model import MyLSTM
 from utils import reshapeToTensor
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, f1_score, cohen_kappa_score
 from train import train
 
 
@@ -37,4 +37,6 @@ for i in range(constants.N_FOLDS):
 
     # TESTING
     pred = model.predict(x_test)
-    print(accuracy_score(np.argmax(y_test, axis=1), np.argmax(pred, axis=1)))
+    print("Accuracy score on test set: ", accuracy_score(np.argmax(y_test, axis=1), np.argmax(pred, axis=1)))
+    print("F-score on test set: ", f1_score(y_test, pred, average='macro'))
+    print("K-score on test set: ", cohen_kappa_score(y_test, pred))
