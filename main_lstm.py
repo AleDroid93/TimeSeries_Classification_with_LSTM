@@ -16,7 +16,7 @@ for i in range(N_FOLDS):
     target_train_fn = '[YOUR TRAIN LABELS FILE PATH HERE]'
     target_validation_fn = '[YOUR VALIDATION LABELS FILE PATH HERE]'
     target_test_fn = '[YOUR TEST LABELS FILE PATH HERE]'
-    
+
     # loading the data already splitted
     x_train = np.load(train_fn)
     x_validation = np.load(validation_fn)
